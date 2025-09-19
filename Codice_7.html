@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esempio di ciclo for semplice:  </title>
+    <title>Esempio di ciclo for semplice</title>
 </head>
 <body>
     <h1>Numeri da 1 a 10</h1>
     <ul id="listNumeri"></ul>
 
     <script>
-        //Selezione l'elemento ul
         var listNumeri = document.getElementById("listNumeri");
-        //Ciclo for per visulizzare i numeri da 1 a 10
-        for (var i=1; i<= 10; i++){
-            //Creiamo un nuovo elemento li 
-            var listItem = document.getElementById("li");
-            // impostiamo il testo dell'elemento li
-            listItem.textContent = "numero" +i;
-            //aggiungiamo l'elemento li  alla lista lu 
+
+        for (var i = 1; i <= 10; i++) {
+            var listItem = document.createElement("li");
+            listItem.textContent = "numero " + i;
             listNumeri.appendChild(listItem);
         }
     </script>
 </body>
-
 </html>
-
-
-
