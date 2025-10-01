@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 3 javascript</title>
+</head>
+<body>
+    <h1>Esercizio 3: le funzioni</h1>
+</body>
+    <script>
+        let messaggio = "globale";
+        function mostraMessaggio(){
+            let messaggio = "Ciao";
+            console.log("dentro =",messaggio);
+        }
+        console.log("fuori = ",messaggio);
+        (function(){
+            let segreto = "1234567";
+            console.log(segreto); //stampa segreto
+        })();
+        console.log(segreto); //da errore perchè segreto non è definito 
+    </script>
+</html>
