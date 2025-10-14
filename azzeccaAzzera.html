@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azzecca e Azzera</title>
+</head>
+<body>
+    <h1>Gioco: Azzecca e Azzera</h1>
+    <p>Apri la console (F12 → Console) per vedere il risultato.</p>
+
+    <script>
+        // Crea un array di 50 numeri casuali da 1 a 50
+        let numeri = [];
+        for (let i = 0; i < 50; i++) {
+            numeri.push(Math.floor(Math.random() * 50) + 1);
+        }
+
+        console.log("Array iniziale:", numeri);
+
+        // Finché non tutti gli elementi sono zero
+        while (!numeri.every(n => n === 0)) {
+            let numero = parseInt(prompt("Inserisci un numero (1-50):"));
+            
+            if (isNaN(numero) || numero < 1 || numero > 50) {
+                alert("Inserisci un numero valido tra 1 e 50!");
+                continue;
+            }
+
+            // Azzera tutti i multipli del numero inserito
+            for (let i = 0; i < numeri.length; i++) {
+                if (numeri[i] % numero === 0 && numeri[i] !== 0) {
+                    numeri[i] = 0;
+                }
+            }
+
+            console.log(`Hai inserito ${numero}.`);
+            console.log("Array aggiornato:", numeri);
+        }
+
+        console.log("🎉 Tutti gli elementi sono stati azzerati! Gioco terminato.");
+    </script>
+</body>
+</html>
