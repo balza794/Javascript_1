@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio con arguments</title>
+</head>
+<body>
+    <h1>Uso dell'oggetto arguments</h1>
+    <p>Apri la console (F12 → Console) per vedere i risultati.</p>
+
+    <script>
+        function calcola() {
+            // Il primo argomento indica l'operazione da eseguire (+, -, *, /)
+            var operazione = arguments[0];
+
+            // Variabile per il risultato
+            var result;
+
+            // Imposto un valore iniziale diverso in base all’operazione
+            if (operazione === '+' || operazione === '-') {
+                result = 0;
+            } else {
+                result = 1;
+            }
+
+            // Ciclo su tutti gli altri argomenti (numeri)
+            for (var i = 1; i < arguments.length; i++) {
+                switch (operazione) {
+                    case '+':
+                        result += arguments[i];   // Somma
+                        break;
+
+                    case '-':
+                        result -= arguments[i];   // Sottrazione
+                        break;
+
+                    case '*':
+                        result *= arguments[i];   // Moltiplicazione
+                        break;
+
+                    case '/':
+                        result /= arguments[i];   // Divisione
+                        break;
+
+                    default:
+                        result = 0;  // Se l’operazione non è riconosciuta
+                }
+            }
+
+            return result; // Ritorna il risultato finale
+        }
+
+        // Esempi di utilizzo:
+        console.log(calcola('+', 2, 4, 6));   // 12
+        console.log(calcola('*', 2, 3, 4));   // 24
+        console.log(calcola('-', 10, 2, 1));  // 7
+        console.log(calcola('/', 100, 2, 5)); // 10
+    </script>
+</body>
+</html>
