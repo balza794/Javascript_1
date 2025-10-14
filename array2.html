@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incassi Settimanali</title>
+</head>
+<body>
+    <h1>Gestione Incassi Settimanali</h1>
+    <p>Apri la console (F12 → Console) per vedere i risultati.</p>
+
+    <script>
+        // Legge in input 7 valori e li memorizza nell'array incassi1
+        let incassi1 = [];
+        for (let i = 0; i < 7; i++) {
+            let valore = parseFloat(prompt(`Inserisci l'incasso del giorno ${i + 1}:`));
+            incassi1.push(valore);
+        }
+
+        // Copia dell'array con l'istruzione incassi2 = incassi1
+        let incassi2 = incassi1;
+
+        // Riduzione del 10% del primo e ultimo giorno nella seconda settimana
+        incassi2[0] *= 0.9;
+        incassi2[6] *= 0.9;
+
+        // Visualizzazione degli array
+        console.log("Incassi prima settimana:", incassi1);
+        console.log("Incassi seconda settimana (con copia tramite '='):", incassi2);
+
+        // Calcolo degli incassi medi
+        let media1 = incassi1.reduce((a, b) => a + b) / incassi1.length;
+        let media2 = incassi2.reduce((a, b) => a + b) / incassi2.length;
+
+        console.log("Incasso medio prima settimana:", media1.toFixed(2));
+        console.log("Incasso medio seconda settimana:", media2.toFixed(2));
+
+        console.log("Commento:");
+        console.log("Usando 'incassi2 = incassi1', i due array puntano alla stessa area di memoria.");
+        console.log("Quindi modificando incassi2, cambia anche incassi1.");
+
+        // Copia corretta dell’array con l’operatore spread [...]
+        let incassi3 = [...incassi1];
+
+        // Riduzione del 10% del primo e ultimo giorno anche in questa copia
+        incassi3[0] *= 0.9;
+        incassi3[6] *= 0.9;
+
+        console.log("\nIncassi terza settimana (con copia tramite spread [...]):", incassi3);
+        let media3 = incassi3.reduce((a, b) => a + b) / incassi3.length;
+        console.log("Incasso medio terza settimana:", media3.toFixed(2));
+
+        console.log("Commento finale:");
+        console.log("Con l'operatore spread [...], viene creata una vera copia indipendente dell’array.");
+        console.log("Modificando incassi3, incassi1 resta invariato.");
+    </script>
+</body>
+</html>
