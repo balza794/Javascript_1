@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confronto Medie Quadrimestri</title>
+</head>
+<body>
+    <h1>Confronto tra Media del Primo e Secondo Quadrimestre</h1>
+    <p>Apri la console (F12 → Console) per vedere i risultati.</p>
+
+    <script>
+        // Funzione che confronta la media del primo periodo con i voti del secondo
+        function confrontoMedie(mediaPrimo) {
+            // Calcolo della media del secondo periodo usando l'oggetto arguments
+            let somma = 0;
+            let count = 0;
+
+            // arguments[0] è la media del primo quadrimestre, quindi parto da 1
+            for (let i = 1; i < arguments.length; i++) {
+                somma += arguments[i];
+                count++;
+            }
+
+            let mediaSecondo = somma / count;
+
+            console.log("Media primo quadrimestre:", mediaPrimo.toFixed(2));
+            console.log("Voti secondo quadrimestre:", Array.from(arguments).slice(1));
+            console.log("Media secondo quadrimestre:", mediaSecondo.toFixed(2));
+
+            // Confronto delle medie
+            if (mediaSecondo > mediaPrimo) {
+                console.log("La media è migliorata nel secondo quadrimestre.");
+            } else if (mediaSecondo < mediaPrimo) {
+                console.log("La media è peggiorata nel secondo quadrimestre.");
+            } else {
+                console.log("La media è rimasta invariata.");
+            }
+        }
+
+        // Esempio di utilizzo
+        confrontoMedie(7.5, 8, 7, 9, 8, 7);
+        console.log("---------------------------");
+        confrontoMedie(8, 7, 6, 6, 7);
+    </script>
+</body>
+</html>
