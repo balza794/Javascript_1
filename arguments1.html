@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio con arguments</title>
+</head>
+<body>
+    <h1>Uso dell'oggetto arguments</h1>
+    <p>Apri la console (F12 → Console) per vedere i risultati.</p>
+
+    <script>
+        // Funzione che calcola la somma di tutti i numeri passati come argomento
+        function sommaTutti() {
+            let somma = 0;
+
+            console.log("Hai passato " + arguments.length + " numeri:");
+
+            for (let i = 0; i < arguments.length; i++) {
+                console.log("Numero " + (i + 1) + ": " + arguments[i]);
+                somma += arguments[i];
+            }
+
+            return somma;
+        }
+
+        // Esempio di utilizzo della funzione
+        let risultato1 = sommaTutti(2, 5, 8);
+        console.log("Somma dei numeri (2, 5, 8) =", risultato1);
+
+        let risultato2 = sommaTutti(10, 20, 30, 40, 50);
+        console.log("Somma dei numeri (10, 20, 30, 40, 50) =", risultato2);
+
+        console.log("Commento:");
+        console.log("L'oggetto 'arguments' permette di gestire un numero variabile di valori senza doverli dichiarare come parametri.");
+    </script>
+</body>
+</html> 
