@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio 1 </title>
+</head>
+<body></body>
+    <ul id="listaNumeri"></ul>
+
+    <script>
+        function longestString() {
+        let longest = "";
+        if (arguments.length === 0) {
+         throw new TypeError("At least one string is required");
+        }
+         for (const arg of arguments) {
+            if (arg.length > longest.length) {
+            longest = arg;
+             }
+        }
+            return longest;
+            }
+    </script>
+</body>
+</html>
