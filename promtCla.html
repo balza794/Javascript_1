@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio con arguments</title>
+</head>
+<body>
+    <h1>Esercizio della classe con prompt:</h1>
+    <p>Apri la console per vedere i risultati.</p>
+    <script>
+        const studenti = [];
+
+        function gestisciStudenti() {
+            let numeroSt = parseInt(prompt("Inserisci il numero degli studenti:"));
+            for (let i = 0; i < numeroSt; i++) {
+                let nome = prompt("Inserisci il nome dello studente");
+                let mediaP = parseFloat(prompt("Inserisci la media del primo quadrimestre"));
+                let mediaS = parseFloat(prompt("Inserisci la media del secondo quadrimestre"));
+
+                let oggetto = {
+                    nome: nome,
+                    mediaPrimo: mediaP,
+                    mediaSecondo: mediaS
+                };
+
+                studenti.push(oggetto);
+            }
+        }
+
+        // Funzione per confrontare le medie
+        function confrontoMedie(mediaPrimo, mediaSecondo) {
+            console.log("Media primo quadrimestre:", mediaPrimo);
+            console.log("Media secondo quadrimestre:", mediaSecondo);
+
+            if (mediaSecondo < 6 && mediaSecondo < mediaPrimo) {
+                return "B"; // insufficiente e inferiore
+            } else if (mediaSecondo < 6) {
+                return "A"; // insufficiente ma non inferiore
+            } else if (mediaSecondo >= 6 && mediaSecondo < mediaPrimo) {
+                return "C"; // sufficiente ma inferiore
+            } else {
+                return "D"; // sufficiente e superiore
+            }
+        }
+
+        // Esegui
+        gestisciStudenti();
+
+        // Contatori
+        let contA = 0;
+        let contB = 0;
+        let contC = 0;
+        let contD = 0;
+
+        // Ciclo su ogni studente
+        for (let studente of studenti) {
+            console.log("--------------");
+            console.log("Nome:", studente.nome);
+
+            let risultato = confrontoMedie(studente.mediaPrimo, studente.mediaSecondo);
+
+            // Conta i risultati
+            switch (risultato) {
+                case "A":
+                    contA++;
+                    break;
+                case "B":
+                    contB++;
+                    break;
+                case "C":
+                    contC++;
+                    break;
+                case "D":
+                    contD++;
+                    break;
+            }
+        }
+
+        // Risultati totali
+        console.log("============== RISULTATI ==============");
+        console.log("A - Insufficiente ma non inferiore:", contA);
+        console.log("B - Insufficiente e inferiore:", contB);
+        console.log("C - Sufficiente ma inferiore:", contC);
+        console.log("D - Sufficiente e superiore:", contD);
+    </script>
+</body>
+</html>
